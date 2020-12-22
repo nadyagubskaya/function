@@ -26,13 +26,13 @@
                 }
 
 
-                if (strokeLength === NaN){
-                    console.log("размер строки должен быть числом");
-                } else{
+                if (strokeLength !== NaN){
                     var useNumber = true;
+                } else{
+                    console.log("размер строки должен быть числом");
                 }
 
-
+            
                 var difference = strokeLength - userString.length;
 
                 if (userString.length < strokeLength){
@@ -48,9 +48,9 @@
 
                 if ( userCharacter == true && useNumber == true && comparison == true ){
                     if (toStart === true){
-                        console.log(sumCharacter + userString );
+                       return (sumCharacter + userString )
                     } else {
-                        console.log(userString + sumCharacter);
+                        return (userString + sumCharacter)
                     }
                 } else {
                     console.log("ошибка");
@@ -58,11 +58,9 @@
 
             }
 
-            padString(userString, strokeLength, userSymbol);
+            var result = padString(userString, strokeLength, userSymbol);
 
-
-
-
+            console.log(result)
         </script>
 
     </body>
