@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+    </head>
+    <body>
+
+        <script>
+
+            var userString = prompt('введите текст');
+            var strokeLength =+ prompt('введите размер строки');
+            var userSymbol = prompt('введите символ');
+            var toStart = 'false';
+
+            function getCompareingResult(num1, num2){
+                return num1 < num2;
+            }
+
+            function checkNumber(number){
+                return typeof number === 'number';
+            }
+
+            function getFirstSymbol (strokeName) {
+
+                return strokeName[0]; 
+
+            }
+
+            function getSymbolStroke(lengthCharacter, character){
+                var sumCharacter = "";
+                for (var i = 1; i <= lengthCharacter; i++){ 
+                    sumCharacter += character;
+                }
+                return sumCharacter;
+            }
+
+
+            function padString(userString, strokeLength, userSymbol, toStart){
+
+                if(userSymbol){
+                    userSymbol = getFirstSymbol(userSymbol);
+                } else {
+                    console.log("не введен символ");
+                }
+
+                var userNumber = checkNumber(strokeLength);
+                var difference = strokeLength - userString.length;
+                var sumSymbols = getSymbolStroke(difference,  userSymbol );
+                var compareing = getCompareingResult(userString.length,  strokeLength);
+              
+                if (compareing === true && sumSymbols && userNumber === true ){
+                    if (toStart === true){
+                        console.log(sumSymbols + userString );
+                    } else {
+                        console.log(userString + sumSymbols);
+                    }
+                } else {
+                    console.log("ошибка");
+                }
+
+
+            }
+
+            padString(userString, strokeLength, userSymbol);
+
+
+
+
+        </script>
+
+    </body>
+</html>
