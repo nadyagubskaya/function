@@ -8,52 +8,28 @@
 
         <script>
 
-            var userString = prompt('введите текст');
-            var strokeLength =+ prompt('введите размер строки');
-            var userSymbol = prompt('введите символ');
+            var userString = 'ivan';
+            var strokeLength = 7;
+            var userSymbol = '*888888888';
             var toStart = 'false';
 
 
-
             function padString(userString, strokeLength, userSymbol, toStart){
+                
+                userSymbol = userSymbol[0];
 
-
-                if(userSymbol){
-                   userSymbol = userSymbol[0];
-                    var userCharacter = true;
-                } else {
-                    console.log("не введен символ");
-                }
-
-
-                if (strokeLength !== NaN){
-                    var useNumber = true;
-                } else{
-                    console.log("размер строки должен быть числом");
-                }
-
-            
                 var difference = strokeLength - userString.length;
 
-                if (userString.length < strokeLength){
-                    var comparison = true;
-                } else {
-                    console.log("размер строки должен быть больше текста");
-                }
-
                 var sumCharacter = "";
+                
                 for (var i = 1; i <= difference; i++){ 
                     sumCharacter += userSymbol;
                 }
 
-                if ( userCharacter == true && useNumber == true && comparison == true ){
-                    if (toStart === true){
-                       return (sumCharacter + userString )
-                    } else {
-                        return (userString + sumCharacter)
-                    }
+                if (toStart === true){
+                    return (sumCharacter + userString );
                 } else {
-                    console.log("ошибка");
+                    return (userString + sumCharacter);
                 }
 
             }
@@ -61,6 +37,9 @@
             var result = padString(userString, strokeLength, userSymbol);
 
             console.log(result)
+
+
+
         </script>
 
     </body>
